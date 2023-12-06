@@ -173,7 +173,7 @@ class ExitEnv(AbstractEnv):
             lane = road.network.get_lane(("a", "b", self.np_random.integers(3)))
             position = lane.position(position + self.np_random.uniform(-5, 5), 0)
             speed += self.np_random.uniform(-1, 1)
-            # road.vehicles.append(other_vehicles_type(road, position, speed=speed))
+            road.vehicles.append(other_vehicles_type(road, position, speed=speed))
 
         for position in [110, 130, 150]:
             merging_v = other_vehicles_type(
@@ -182,7 +182,7 @@ class ExitEnv(AbstractEnv):
                 speed=20,
             )
             merging_v.target_speed = 15
-        # road.vehicles.append(merging_v)
+        road.vehicles.append(merging_v)
 
         self.vehicle = ego_vehicle
 
